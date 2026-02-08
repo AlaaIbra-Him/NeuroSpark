@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, ArrowRight, Activity, Zap, Droplets, TrendingUp } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
+
 
 export default function SolarRoboticsLanding() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -9,6 +11,8 @@ export default function SolarRoboticsLanding() {
         uptime: 0,
         fleetHealth: 0
     });
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -47,6 +51,8 @@ export default function SolarRoboticsLanding() {
             });
         });
 
+
+
         const dashboardElement = document.getElementById('dashboard-metrics');
         if (dashboardElement) {
             observer.observe(dashboardElement);
@@ -75,7 +81,9 @@ export default function SolarRoboticsLanding() {
                         <a href="#scale" className="text-sm text-slate-400 hover:text-slate-200 transition-colors">
                             Scale
                         </a>
-                        <button className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white rounded-sm transition-colors">
+                        <button className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white rounded-sm transition-colors"
+                            onClick={() => navigate("/src/Dashboard.jsx")}
+                        >
                             Request Demo
                         </button>
                     </div>
@@ -117,7 +125,10 @@ export default function SolarRoboticsLanding() {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                        <button className="group px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-sm transition-all duration-300 flex items-center gap-2">
+                        <button className="group px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-sm transition-all duration-300 flex items-center gap-2"
+                            onClick={() => navigate("/src/Dashboard.jsx")}
+
+                        >
                             Request Demo
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </button>

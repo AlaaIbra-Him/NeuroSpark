@@ -45,6 +45,7 @@ export default function SolarDashboard() {
         { id: 3, type: 'critical', message: 'Communication loss: Unit #12 (last seen 8 mins ago)', time: '8 mins ago', severity: 'high' },
         { id: 4, type: 'info', message: 'Predictive maintenance: Unit #3 bearing wear detected', time: '12 mins ago', severity: 'medium' }
     ];
+    
 
     const robotFleet = [
         { id: 1, status: 'active', battery: 87, location: 'Grid A1', cycles: 6 },

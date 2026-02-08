@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { AlertCircle, AlertTriangle, Zap, Droplets, Activity, TrendingUp, ChevronDown, Radio, Battery, Wind } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
+import { AlertCircle, AlertTriangle, Zap, Droplets, Activity, TrendingUp, ChevronLeft, Radio, Battery, Wind } from 'lucide-react';
 import {
     LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
     XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
@@ -8,6 +10,7 @@ import {
 export default function SolarDashboard() {
     const [selectedRobot, setSelectedRobot] = useState(null);
     const [animateMetrics, setAnimateMetrics] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setAnimateMetrics(true);
@@ -49,9 +52,9 @@ export default function SolarDashboard() {
         { id: 3, status: 'charging', battery: 45, location: 'Dock 1', cycles: 7 },
         { id: 4, status: 'idle', battery: 100, location: 'Dock 2', cycles: 4 },
         { id: 5, status: 'active', battery: 73, location: 'Grid C3', cycles: 8 },
-        { id: 6, status: 'active', battery: 94, location: 'Grid D1', cycles: 6 },
-        { id: 7, status: 'idle', battery: 88, location: 'Dock 1', cycles: 5 },
-        { id: 8, status: 'active', battery: 81, location: 'Grid B3', cycles: 6 }
+        // { id: 6, status: 'active', battery: 94, location: 'Grid D1', cycles: 6 },
+        // { id: 7, status: 'idle', battery: 88, location: 'Dock 1', cycles: 5 },
+        // { id: 8, status: 'active', battery: 81, location: 'Grid B3', cycles: 6 }
     ];
 
     const getStatusColor = (status) => {
@@ -102,14 +105,26 @@ export default function SolarDashboard() {
             {/* Top Navigation Bar */}
             <header className="sticky top-0 z-40 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md">
                 <div className="px-8 py-4 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-blue-600/20 border border-blue-500/50 flex items-center justify-center">
-                            <Zap className="w-5 h-5 text-blue-300" />
+                    <div className="flex items-center gap-4">
+
+                        <button
+                            onClick={() => navigate('/')}
+                            className="p-2 hover:bg-slate-800/50 rounded-lg transition-colors group"
+                            title="Back to home"
+                        >
+                            <ChevronLeft className="w-5 h-5 text-slate-400 group-hover:text-slate-200" />
+                        </button>
+
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-lg bg-blue-600/20 border border-blue-500/50 flex items-center justify-center">
+                                <Zap className="w-5 h-5 text-blue-300" />
+                            </div>
+                            <div>
+                                <h1 className="text-lg font-semibold tracking-tight">NeuroSpark</h1>
+                                <p className="text-xs text-slate-500">Real-time fleet management & analytics</p>
+                            </div>
                         </div>
-                        <div>
-                            <h1 className="text-lg font-semibold tracking-tight">Solar Operations Hub</h1>
-                            <p className="text-xs text-slate-500">Real-time fleet management & analytics</p>
-                        </div>
+
                     </div>
 
                     <div className="flex items-center gap-8">
@@ -408,7 +423,7 @@ export default function SolarDashboard() {
                         </div>
 
                         {/* Arrow 1 */}
-                        <div className="flex-shrink-0 text-slate-600 text-2xl">→</div>
+                        <div className="flex-shrink-0 text-slate-600 text-2xl"></div>
 
                         {/* Component 2: Robot Fleet */}
                         <div className="flex flex-col items-center gap-3 min-w-max">

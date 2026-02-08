@@ -82,7 +82,7 @@ export default function SolarRoboticsLanding() {
                             Scale
                         </a>
                         <button className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white rounded-sm transition-colors"
-                            onClick={() => navigate("/src/Dashboard.jsx")}
+                            onClick={() => navigate("/dashboard")}
                         >
                             Request Demo
                         </button>
@@ -126,7 +126,7 @@ export default function SolarRoboticsLanding() {
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                         <button className="group px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-sm transition-all duration-300 flex items-center gap-2"
-                            onClick={() => navigate("/src/Dashboard.jsx")}
+                            onClick={() => navigate("/dashboard")}
 
                         >
                             Request Demo
@@ -167,10 +167,10 @@ export default function SolarRoboticsLanding() {
                         </div> */}
                         <div className="w-full h-200 flex flex-col items-center justify-center bg-slate-800/30 backdrop-blur-sm">
 
-                            <div className="w-full flex-1 rounded-lg overflow-hidden">
+                            <div className="w-full h-full flex-1 rounded-lg overflow-hidden">
                                 <video
                                     className="w-full h-full object-cover"
-                                    src="/videos/model1.mp4"
+                                    src="/videos/model3.mp4"
                                     autoPlay
                                     loop
                                     muted

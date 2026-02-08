@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
+import LandingPage from './LandingPage'
+import Dashboard from './Dashboard'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-   <div >
-   </div>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
   )
 }
 
